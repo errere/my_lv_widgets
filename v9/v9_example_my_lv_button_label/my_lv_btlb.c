@@ -27,7 +27,8 @@ const lv_obj_class_t my_btlb_class = {
     .height_def = LV_SIZE_CONTENT,
     .constructor_cb = my_btlb_constructor,
     .instance_size = sizeof(lv_my_btlb_t),
-    .theme_inheritable = 1};
+    .theme_inheritable = LV_OBJ_CLASS_THEME_INHERITABLE_TRUE // inherit theme from base class
+};
 
 static void my_btlb_constructor(const lv_obj_class_t *class_p, lv_obj_t *obj)
 {
@@ -49,5 +50,6 @@ lv_obj_t *my_btlb_create(lv_obj_t *parent)
 
     return obj;
 }
+
 
 // eof
