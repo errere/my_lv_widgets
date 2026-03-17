@@ -10,12 +10,15 @@ extern "C"
      *      INCLUDES
      *********************/
 #include "lvgl.h"
-#include "lvgl-9.4.0/src/core/lv_obj_private.h"
-#include "lvgl-9.4.0/src/widgets/button/lv_button_private.h"
+#include "lvgl_private.h"
 
 /*Testing of dependencies*/
 #if LV_USE_LABEL == 0
 #error "lv_label is required. Enable it in lv_conf.h (LV_USE_LABEL  1) "
+#endif
+
+#if LV_USE_BUTTON == 0
+#error "lv_button is required. Enable it in lv_conf.h (LV_USE_LABEL  1) "
 #endif
 
     /*********************
@@ -40,7 +43,15 @@ extern "C"
      * GLOBAL PROTOTYPES
      **********************/
 
-    lv_obj_t *my_btlb_create(lv_obj_t *parent);
+    /**
+     * @brief create a label in button
+     */
+    lv_obj_t *my_lv_btlb_create(lv_obj_t *parent);
+
+    void my_lv_btlb_set_label_text(lv_obj_t *obj, const char *text);
+    void my_lv_btlb_set_label_color(lv_obj_t *obj, lv_color_t c);
+
+    lv_obj_t *my_lv_btlb_get_label(lv_obj_t *obj);
 
     /**********************
      *      MACROS
